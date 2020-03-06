@@ -6,7 +6,7 @@ import alertReducer from "./alertReducer";
 import authReducer from "./authReducer";
 
 export default combineReducers({
-  add: addReducer,
+  sum: addReducer,
   alert: alertReducer,
   auth: authReducer
 });
