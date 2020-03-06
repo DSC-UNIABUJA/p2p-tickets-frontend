@@ -23,7 +23,7 @@ const HeaderComponent = styled.nav`
     padding-right: 2rem;
 
     @media screen and (max-width: 500px) {
-      padding-left: 1rem;
+      /* padding-left: 1rem; */
     }
 
     @media screen and (max-width: 470px) {

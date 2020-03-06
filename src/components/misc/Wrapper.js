@@ -8,7 +8,7 @@ const Wrapper = props => {
     <div>
       <Header {...props} />
       <Container>{props.children}</Container>
-      <Footer />
+      <Footer {...props} />
     </div>
   );
 };

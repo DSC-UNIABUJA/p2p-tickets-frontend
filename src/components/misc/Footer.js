@@ -1,9 +1,9 @@
 import React from 'react';
 import FooterComponent from "../../StyledComponents/misc/Footer"
 
-const Footer = () => {
+const Footer = props => {
   return (
-    <div>
+    <div style={{display: props.auth ? "none" : "block"}}>
       <FooterComponent>
         <p>
           &copy; {new Date().getFullYear()} <br />
