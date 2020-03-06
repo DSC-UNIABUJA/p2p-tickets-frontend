@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Wrapper from "../misc/Wrapper"
 
 const Dashboard = () => {
   return (
-    <div>
-      dashboard route
-    </div>
+    <Wrapper private>
+      dashboard here
+   </Wrapper>
   )
 }
 

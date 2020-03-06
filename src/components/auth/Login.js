@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Wrapper from '../misc/Wrapper'
 
 const Login = () => {
   return (
-    <div>
-      login route
-    </div>
+    <Wrapper public>
+      login here
+    </Wrapper>
   )
 }
 

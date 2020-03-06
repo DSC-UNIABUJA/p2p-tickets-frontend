@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Wrapper from "../misc/Wrapper"
 
 const Register = () => {
   return (
-    <div>
-      register route
-    </div>
+    <Wrapper public>
+      register here
+    </Wrapper>
   )
 }
 
