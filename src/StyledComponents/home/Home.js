@@ -1,21 +1,23 @@
-import styled, { css, keyframes } from "styled-components";
-
-const blink = keyframes`
-50% {
-      border-color: transparent;
-    }
-`;
+import styled from "styled-components";
 
 // add styles here, create other files to import, include from if need be
 const HomeComponent = styled.div`
   .mainHeader {
     text-align: center;
     font-size: 3rem;
+
+    @media screen and (max-width: 500px) {
+      font-size: 2.3rem;
+    }
   }
 
   .mainParagraph {
     font-size: 1.8rem;
     font-weight: bold;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.2rem;
+    }
   }
 
   p {
@@ -24,17 +26,31 @@ const HomeComponent = styled.div`
     text-align: center;
   }
 
+  .secondHeader {
+    @media screen and (max-width: 500px) {
+      margin-top: 1.6rem;
+    }
+  }
+
   .secondHeader,
   .thirdHeader {
     text-align: center;
     font-size: 1.8rem;
     margin-top: 3rem;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.5rem;
+    }
   }
 
   .secondHeaderParagraph,
   .thirdHeaderParagraph {
     text-align: center;
     font-size: 1.1rem;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1rem;
+    }
   }
 
   .secondHeaderParagraph {
@@ -45,11 +61,21 @@ const HomeComponent = styled.div`
   .typewriterEffect {
     font-size: 1.5rem;
     margin-top: 2rem;
+    text-align: center;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.1rem;
+      margin-top: 1.4rem;
+    }
   }
 
   .thirdHeaderParagraph {
     font-size: 1.2rem;
     max-width: 700px;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1rem;
+    }
   }
 
   .sellTicketLists {
@@ -61,9 +87,12 @@ const HomeComponent = styled.div`
     font-size: 1.1rem;
     padding: 0;
 
+    @media screen and (max-width: 500px) {
+      font-size: 1rem;
+    }
+
     li {
       margin-bottom: 1rem;
-
     }
   }
 `;

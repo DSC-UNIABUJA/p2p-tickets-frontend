@@ -11,13 +11,15 @@ import Dashboard from "./components/dashboard/Dashboard"
 import Login from "./components/auth/Login"
 import Register from "./components/auth/Register"
 // import Events from "./components/events/Events"
-import Redux from "./components/Redux"
+import Redux from "./components/Redux";
+import Alert from "./components/layout/alert/Alert"
 
 // any route that is private and needs authentication will have a redirect to the login page when users attempt to visit it.
-function App() {
+function App () {
   return (
     <Provider store={store}>
       <Router>
+        <Alert />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />

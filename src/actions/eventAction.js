@@ -1,4 +1,4 @@
-import { GET_EVENTS, NETWORK_ERROR } from "./types";
+import { GET_EVENTS, ASYNC_ERROR } from "./types";
 import axios from "axios";
 
 export const getEvents = () => async dispatch => {
@@ -12,7 +12,7 @@ export const getEvents = () => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: NETWORK_ERROR,
+      type: ASYNC_ERROR,
       payload: err.message
     });
   }

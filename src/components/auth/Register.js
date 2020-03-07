@@ -3,8 +3,10 @@ import Wrapper from "../misc/Wrapper";
 import { Link } from "react-router-dom";
 import LoginComponent from "../../StyledComponents/auth/Login";
 import FormComponent from "../../StyledComponents/misc/Form";
+import { connect } from "react-redux"
+import {setAlert} from "../../actions/alertAction"
 
-const Register = () => {
+const Register = (props) => {
   // refs
   const nameRef = createRef();
   const emailRef = createRef();
@@ -12,6 +14,9 @@ const Register = () => {
   const confirmPasswordRef = createRef();
   const passwordMainRef = createRef();
   const submitBtn = createRef();
+
+  // props
+  const {setAlert} = props
 
   // set loading to "loading..." when making async requests
   // useEffect(() => {
@@ -53,6 +58,7 @@ const Register = () => {
     console.log( {
       name, email, password, confirmPassword
     } )
+    setAlert("Successfully registered. Redirecting to login...", "success");
     // after successful registering, clear credentials and redirect to login 
     
   };
@@ -209,4 +215,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+const mapDispatchToProps = {
+  setAlert
+}
+
+export default connect(null, mapDispatchToProps)(Register);

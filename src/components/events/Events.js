@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 import EventComponent from "../../StyledComponents/events/Events";
 import IndividualEvent from "./IndividualEvent";
 import { getEvents } from "../../actions/eventAction";
@@ -8,7 +8,10 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
+import { setAlert } from "../../actions/alertAction";
+import Loader from "../layout/loader/Loader"
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -76,21 +79,25 @@ const Events = props => {
   //   })();
   // });
 
-  const { match, location, allEvents, getEvents } = props;
+  const { match, location, allEvents, getEvents, setAlert } = props;
   useEffect(() => {
     getEvents();
   }, [allEvents, getEvents]);
 
+  useEffect(() => {
+    if (allEvents === "Network Error") {
+      setAlert("Please check your internet connection", "error");
+    }
+  }, [allEvents, setAlert]);
+
   const displayEvents = () => {
     if (allEvents === null) {
-      return <p>Loading...</p>;
+      return <Loader />;
     } else if (Array.isArray(allEvents)) {
       return allEvents.map((event, i) => {
         return (
-          <Grid key={i} item xs>
-            <Paper elevation={6} className={classes.paper}>
+          <Grid key={i} item xs={12} sm={4}>
               <IndividualEvent event={event} />
-            </Paper>
           </Grid>
         );
       });
@@ -128,7 +135,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getEvents
+  getEvents,
+  setAlert
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Events);
