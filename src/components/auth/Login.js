@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Wrapper from "../misc/Wrapper";
 import LoginComponent from "../../StyledComponents/auth/Login";
 import FormComponent from "../../StyledComponents/misc/Form";
+import axios from "axios";
 
 const Login = () => {
   // refs
@@ -32,8 +33,11 @@ const Login = () => {
     //   email: usernameOrEmail,
     //   password: password
     // });
-    console.log(user)
-    // after loggin in, clear credentials and redirect to dashboard 
+    const token = "";
+    axios.defaults.headers.Authorization = `Bearer ${token}`;
+    axios.defaults.withCredentials = true;
+    console.log(user);
+    // after loggin in, clear credentials and redirect to dashboard
   };
   const [disableSubmit, setDisableSubmit] = useState(true);
 

@@ -1,42 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Typewriter from "typewriter-effect";
 import Wrapper from "../misc/Wrapper";
-import HomeComponent from "../../StyledComponents/home/Home"
-import {Button} from "../../StyledComponents/utils"
+import HomeComponent from "../../StyledComponents/home/Home";
+import { Button } from "../../StyledComponents/utils";
+import Events from "../events/Events";
 
-const Home = (props) => {
+const Home = props => {
   return (
     <Wrapper public>
       <HomeComponent>
-        <h1 className="mainHeader">Ticketing App ▲</h1>
+        <h1 className="mainHeader">Ticketr▲</h1>
         <p className="mainParagraph">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. At amet
-          omnis, in perspiciatis optio cumque, sapiente quaerat, voluptate
-          repellat unde maxime ea soluta eaque reprehenderit rem. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum.
+          Buy, Sell and Transfer Tickets for Events{" "}
+          <span role="img" aria-label="ticket emoji">
+            🎫
+          </span>
         </p>
+
+        <div className="typewriterEffect">
+          <div>
+            <Typewriter
+              options={{
+                strings: [
+                  "Easily register your events in no time 🕺",
+                  "Forget the stress involved in manually selling tickets 🚣",
+                  "Never worry about losing your tickets! 🤸",
+                  "Tickets are sent securely 🚀",
+                  "Payment is 100% secure ✊",
+                  "100% paperless ticketing solution 💯"
+                ],
+                autoStart: true,
+                loop: true,
+                delay: 30
+              }}
+            />
+            {/* <span className="cursor" /> */}
+          </div>
+        </div>
 
         {/* some pictures */}
 
-        <h2 className="secondHeader">Features</h2>
-        <p className="secondHeaderParagraph">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci
-          nulla non deserunt vel accusantium deleniti tempora fugiat aperiam
-          eveniet nostrum. Eos veniam laborum sed. Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
-        </p>
-        <p className="secondHeaderParagraph">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum vel
-          commodi tempora quae temporibus iusto velit officiis distinctio odio
-          corrupti? Ex, atque. Debitis, dolore iusto Lorem ipsum dolor sit amet, consectetur adipisicing.
-        </p>
+        <h3 className="secondHeader">
+          Upcoming Events{" "}
+          <span role="img" aria-label="Lightening and Fire Emojis">
+            ⚡🔥
+          </span>
+        </h3>
+        <Events />
 
-        <h2 className="thirdHeader">Let's help you grow your business</h2>
+        <h2 className="thirdHeader">Sell Tickets for your events</h2>
         <p className="thirdHeaderParagraph">
           Haven developed smart solutions for numerous types of organizations,
-          we know what matters most. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum!
+          we know what matters most. And we've put them in place to make life easier for both you and your customers.
         </p>
 
-        <Button onClick={() => props.history.push( "/register" )}>
-          Get Started Today
+        <ul className="sellTicketLists">
+          <li>&#10004; &nbsp;Getting started is completely free</li>
+          <li>&#10004; &nbsp;You get real time sales information</li>
+          <li>&#10004; &nbsp;Tickets are issued to your buyers instantly by mail</li>
+          <li>&#10004; &nbsp;You only pay a very minimal fee per ticket sale</li>
+          <li>
+            &#10004; &nbsp;We're always available and you can contact us anytime for
+            feedbacks or complaints.
+          </li>
+        </ul>
+
+        <Button onClick={() => props.history.push("/register")}>
+          Create an Event
         </Button>
 
         {/* get started button */}

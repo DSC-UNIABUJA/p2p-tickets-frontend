@@ -62,20 +62,24 @@ const HeaderComponent = styled.nav`
 
     .right {
       display: flex;
-      flex-basis: 20%;
+      flex-basis: 30%;
       justify-content: space-around;
 
       @media screen and (max-width: 1120px) {
-        flex-basis: 30%;
+        flex-basis: 40%;
         justify-content: space-between;
       }
 
       @media screen and (max-width: 780px) {
-        flex-basis: 50%;
+        flex-basis: 60%;
       }
 
-      @media screen and (max-width: 400px) {
-        flex-basis: 57%;
+      @media screen and (max-width: 600px) {
+        flex-basis: 80%;
+      }
+
+      @media screen and (max-width: 500px) {
+        flex-basis: 95%;
         justify-content: flex-end;
       }
 
@@ -118,7 +122,7 @@ const HeaderComponent = styled.nav`
         padding: 0.47rem 1.7rem;
         font-weight: bold;
 
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 570px) {
           border: none;
         }
       }

@@ -13,7 +13,7 @@ const Header = props => {
           <div className="left">
             <li className="brand-name">
               <Link to={props.private ? "/dashboard" : "/"}>
-                Ticketing App
+                Ticketr
               </Link>
             </li>
           </div>
@@ -27,7 +27,7 @@ const Header = props => {
               <Link to="/login">Log In</Link>
             </li>
             <li style={publicLInksStyle} className="register">
-              <Link to="/register">Sign Up</Link>
+              <Link to="/register">Create an Event</Link>
             </li>
             <li
               style={{ display: props.public ? "none" : "inline" }}
