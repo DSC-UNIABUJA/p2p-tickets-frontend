@@ -1,17 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-// import axios from "axios";
-import EventComponent from "../../StyledComponents/events/Events";
+import { Link } from "react-router-dom";
 import IndividualEvent from "./IndividualEvent";
-import { getEvents } from "../../actions/eventAction";
+import { getEvents } from "../../store/actions/eventAction";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import InputBase from "@material-ui/core/InputBase";
-import { setAlert } from "../../actions/alertAction";
-import Loader from "../layout/loader/Loader"
+import { setAlert } from "../../store/actions/alertAction";
+import Loader from "../loader/Loader";
+import styled from "styled-components";
 
+const EventStyle = styled.div`
+  color: #333;
+  .eventHeader {
+    font-size: 2rem;
+  }
+`;
 
+const Button = styled.div`
+  margin: 3.4rem auto 0 auto;
+  text-align: center;
+  display: block;
+
+  a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: inherit;
+    border-radius: 50px;
+    padding: 0.8rem 3.2rem;
+    background: white;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    font-family: inherit;
+    font-weight: bold;
+    transition: ease-in-out 0.4s;
+
+    &:hover {
+      background: transparent;
+      border: 2px solid #555;
+      transform: scale(1.03);
+    }
+  }
+`;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +59,6 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25)
     },
-    // marginLeft: 0,
     margin: "1rem auto 2rem auto",
     display: "block",
     textAlign: "center",
@@ -96,9 +125,11 @@ const Events = props => {
     } else if (Array.isArray(allEvents)) {
       return allEvents.map((event, i) => {
         return (
-          <Grid key={i} item xs={12} sm={4}>
+          <>
+            <Grid key={i} item xs={12} sm={4}>
               <IndividualEvent event={event} />
-          </Grid>
+            </Grid>
+          </>
         );
       });
     } else {
@@ -110,7 +141,7 @@ const Events = props => {
     }
   };
   return (
-    <EventComponent>
+    <EventStyle>
       <div className="classes.root">
         <div className={classes.search}>
           <InputBase
@@ -125,8 +156,13 @@ const Events = props => {
         <Grid container spacing={3}>
           {displayEvents()}
         </Grid>
+        {Array.isArray(allEvents) && (
+          <Button>
+            <Link to="/all-events">See more</Link>
+          </Button>
+        )}
       </div>
-    </EventComponent>
+    </EventStyle>
   );
 };
 
