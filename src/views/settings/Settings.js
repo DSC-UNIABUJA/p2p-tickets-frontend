@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 import Wrapper from "../../components/wrapper/Wrapper";
 
 const Settings = () => {
-  return (
-    <Wrapper>
-      <h1>Settings</h1>
-    </Wrapper>
-  )
-}
+	return (
+		<Wrapper>
+			<h1>Settings</h1>
+		</Wrapper>
+	);
+};
 
-export default Settings
-
+export default Settings;
