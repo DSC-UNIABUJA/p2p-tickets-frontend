@@ -1,10 +1,14 @@
 # Ticketing App
 
+## Usage 
+
 first install dependencies
 
 ```bash
 npm i 
 ```
+
+> after doing this, install prettier and eslint as extensions in your editor(preferably vscode) then configure your editor to format files on save with **eslint**.
 
 run dev server
 
@@ -16,6 +20,18 @@ build
 
 ```bash
 npm run build
+```
+
+show warnings and errors to the console(eslint & prettier)
+
+```bash
+npm run lint
+```
+
+fix the errors(eslint and prettier)
+
+```bash
+npm run lint:fix
 ```
 
 ## Main Tools
