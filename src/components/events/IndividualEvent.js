@@ -19,14 +19,33 @@ const useStyles = makeStyles({
 	centerCardActions: {
 		textAlign: "center",
 		margin: "0 auto",
-		display: "block"
+		display: "block",
+		borderTop: "1px solid #ccc"
+	},
+	cardActionButtons: {
+		fontWeight: "bold"
+	},
+	cardTextArea: {
+		paddingTop: 0,
+		paddingBottom: "1rem"
+	},
+	date: {
+		color: "#da683e",
+		fontWeight: "bold",
+		marginBottom: 0
+	},
+	location: {
+		color: "#808395",
+		fontWeight: "bold",
+		marginBottom: 0,
+		marginTop: "0.5rem"
 	}
 });
 
 const IndividualEvent = props => {
 	const event = props.event;
 	const classes = useStyles();
-	const id = event.id;
+	const { id, name, date, location, time } = event;
 	return (
 		<Card elevation={6} className={classes.root}>
 			<Link
@@ -37,29 +56,38 @@ const IndividualEvent = props => {
 					<CardMedia
 						component="img"
 						alt="Contemplative Reptile"
-						height="140"
+						height="200"
 						image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
 						title="Contemplative Reptile"
 					/>
 
-					<CardContent>
-						<h2 className={classes.centerHeader}>{event.login}</h2>
-
-						<p>
-							<span>{id}</span>
-							Lizards are a widespread group of squamate reptiles, with over
-							6,000 species, ranging across all continents except Antarctica
-						</p>
+					<CardContent className={classes.cardTextArea}>
+						<h2 className={classes.cardHeader}>Name of event</h2>
+						<p className={classes.date}>date, time</p>
+						<p className={classes.location}>location of event</p>
 					</CardContent>
 				</CardActionArea>
 			</Link>
 			<CardActions className={classes.centerCardActions}>
-				<Button size="small" color="primary">
+				<Button
+					className={classes.cardActionButtons}
+					size="small"
+					color="primary"
+				>
 					Share
 				</Button>
-				<Button size="small" color="primary">
-					Learn More
-				</Button>
+				<Link
+					style={{ color: "inherit", textDecoration: "none" }}
+					to={`/event/${id}`}
+				>
+					<Button
+						className={classes.cardActionButtons}
+						size="small"
+						color="primary"
+					>
+						Learn More
+					</Button>
+				</Link>
 			</CardActions>
 		</Card>
 	);

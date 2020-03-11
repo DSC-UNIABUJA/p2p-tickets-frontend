@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Wrapper from "../../components/wrapper/Wrapper";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -36,6 +37,9 @@ const NotFoundStyle = styled.div`
 const NotFound = () => {
 	return (
 		<Wrapper>
+			<Helmet>
+				<title>Not Found | Ticketr</title>
+			</Helmet>
 			<div
 				style={{
 					height: "60vh",

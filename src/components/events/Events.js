@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import IndividualEvent from "./IndividualEvent";
@@ -97,45 +97,31 @@ const useStyles = makeStyles(theme => ({
 
 const Events = props => {
 	const classes = useStyles();
-	// useEffect(() => {
-	//   const { event_name } = match.params;
-	//   (async () => {
-	//     try {
-	//       const res = await axios.get(`event/${event_name}`);
-	//     } catch (err) {
-	//       // catch errors and possibly display them to the client
-	//     }
-	//   })();
-	// });
 
-	const { allEvents, getEvents, setAlert } = props;
+	const { allEvents, getEvents, setAlert, errMsg } = props;
 	useEffect(() => {
 		getEvents();
-	}, [allEvents, getEvents]);
-
-	useEffect(() => {
-		if (allEvents === "Network Error") {
-			setAlert("Please check your internet connection", "error");
-		}
-	}, [allEvents, setAlert]);
+	}, [getEvents]);
 
 	const displayEvents = () => {
-		if (allEvents === null) {
+		if (allEvents === null && errMsg === "") {
 			return <Loader />;
 		} else if (Array.isArray(allEvents)) {
-			return allEvents.map((event, i) => {
+			// display only latest 9 events on the landing page
+			return allEvents.slice(0, 9).map((event, i) => {
 				return (
-					<>
-						<Grid key={i} item xs={12} sm={4}>
+					<Fragment key={i}>
+						<Grid item xs={12} sm={4}>
 							<IndividualEvent event={event} />
 						</Grid>
-					</>
+					</Fragment>
 				);
 			});
 		} else {
+			setAlert(errMsg, "error");
 			return (
 				<p style={{ fontWeight: "bold", color: "red", fontSize: "1.1rem" }}>
-					{allEvents}
+					{errMsg}
 				</p>
 			);
 		}
@@ -144,14 +130,16 @@ const Events = props => {
 		<EventStyle>
 			<div className="classes.root">
 				<div className={classes.search}>
-					<InputBase
-						placeholder="Search for an event"
-						classes={{
-							root: classes.inputRoot,
-							input: classes.inputInput
-						}}
-						inputProps={{ "aria-label": "search" }}
-					/>
+					{Array.isArray(allEvents) && (
+						<InputBase
+							placeholder="Search for any event"
+							classes={{
+								root: classes.inputRoot,
+								input: classes.inputInput
+							}}
+							inputProps={{ "aria-label": "search" }}
+						/>
+					)}
 				</div>
 				<Grid container spacing={3}>
 					{displayEvents()}
@@ -167,7 +155,8 @@ const Events = props => {
 };
 
 const mapStateToProps = state => ({
-	allEvents: state.events.allEvents
+	allEvents: state.events.allEvents,
+	errMsg: state.events.errMsg
 });
 
 const mapDispatchToProps = {

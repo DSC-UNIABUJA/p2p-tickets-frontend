@@ -43,7 +43,7 @@ export default props => {
 		<Wrapper>
 			<Home>
 				<h1 className="mainHeader">Ticketr</h1>
-				<p className="mainParagraph">
+				<p className="mainParagraph centerParagraph">
 					Buy, Sell and Transfer Tickets for Events{" "}
 					<span className="cardContainer">
 						<PaymentIcon style={{ color: "#3672a4" }} fontSize="large" />
@@ -82,7 +82,7 @@ export default props => {
 				<Events />
 
 				<h2 className="thirdHeader">Sell Tickets for your events</h2>
-				<p className="thirdHeaderParagraph">
+				<p className="thirdHeaderParagraph centerParagraph">
 					Haven developed smart solutions for numerous types of organizations,
 					we know what matters most. And we've put them in place to make life
 					easier for both you and your customers.

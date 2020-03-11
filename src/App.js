@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./views/home/Home";
 import Dashboard from "./views/dashboard/Dashboard";
 import Login from "./views/auth/Login";
+import ResetPassword from "./views/auth/ResetPassword";
+import ForgotPassword from "./views/auth/ForgotPassword";
 import Register from "./views/auth/Register";
 import Alert from "./components/alert/Alert";
 import Settings from "./views/settings/Settings";
@@ -27,6 +29,8 @@ function App() {
 					<Route path="/event/:eventId" component={Event} />
 					<Route exact path="/about" component={About} />
 					<Route exact path="/all-events" component={AllEvents} />
+					<Route exact path="/reset-password" component={ResetPassword} />
+					<Route exact path="/forgot-password" component={ForgotPassword} />
 					{/* private routes. configure their redirection properly when API is ready */}
 					<Route exact path="/dashboard" component={Dashboard} />
 					<Route exact path="/settings" component={Settings} />

@@ -1,4 +1,4 @@
-import { GET_EVENTS, ASYNC_ERROR } from "../actions/types";
+import { GET_EVENTS, GET_EVENTS_ERROR } from "../actions/types";
 
 const initialState = {
 	allEvents: null,
@@ -6,19 +6,20 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-	switch (action.type) {
+	const { type, payload } = action;
+	switch (type) {
 		case GET_EVENTS:
 			return {
 				...state,
-				allEvents: action.payload.slice(0, 9)
+				allEvents: action.payload
 			};
-		case ASYNC_ERROR:
+		case GET_EVENTS_ERROR:
 			return {
 				...state,
-				allEvents:
-					action.payload.toLowerCase() === "network error"
-						? action.payload
-						: "oh, snap. Something went wrong."
+				// errMsg: String(payload).match(/^5/)
+				// 	? "Something went wrong. Please bear with us."
+				// 	: "Oops, Network Error. Please try again"
+				errMsg: "oops, something went wrong.."
 			};
 		default:
 			return state;

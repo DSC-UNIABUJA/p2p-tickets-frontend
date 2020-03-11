@@ -34,7 +34,7 @@ export default styled.div`
 		}
 	}
 
-	p {
+	.centerParagraph {
 		/* max-width: 750px; */
 		margin: 0 auto;
 		text-align: center;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Wrapper from "../../components/wrapper/Wrapper";
 import Form from "../../assets/styles/reusable/Form";
@@ -84,6 +85,9 @@ const Login = () => {
 	};
 	return (
 		<LoginStyle>
+			<Helmet>
+				<title>Login | Ticketr</title>
+			</Helmet>
 			<Wrapper>
 				<h1 className="mainHeader">Welcome back</h1>
 				<p className="helper-form-text">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
+import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import Wrapper from "../../components/wrapper/Wrapper";
 import { Link } from "react-router-dom";
@@ -173,6 +174,9 @@ const Register = props => {
 
 	return (
 		<Wrapper>
+			<Helmet>
+				<title>Create an Account | Ticketr</title>
+			</Helmet>
 			<RegisterStyle>
 				<h1 className="mainHeader">Create an account</h1>
 				<p className="helper-form-text">

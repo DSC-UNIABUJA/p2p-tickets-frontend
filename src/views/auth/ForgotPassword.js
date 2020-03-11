@@ -6,9 +6,10 @@ const Settings = () => {
 	return (
 		<Wrapper>
 			<Helmet>
-				<title>Account Settings | Ticketr</title>
+				<title>Reset Password | Ticketr</title>
 			</Helmet>
-			<h1>Settings</h1>
+			<h1>Reset Your Password</h1>
+			<h2>Forgotten your password? don't worry, we got you covered</h2>
 		</Wrapper>
 	);
 };

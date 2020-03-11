@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Wrapper from "../../components/wrapper/Wrapper";
 import styled from "styled-components";
 import { connect } from "react-redux";
@@ -19,26 +20,37 @@ const Event = props => {
 		getEvents();
 	}, [getEvents]);
 
-	const validReturn = (
-		<Wrapper>
-			<EventStyle>
-				<h1 className="mainHeader textCenter">Name of Event</h1>
-				<p>id: {eventId}</p>
-				<p>idAgain: </p>
-			</EventStyle>
-		</Wrapper>
-	);
-
 	if (allEvents === null) {
 		return <Loader />;
 	} else if (
 		Array.isArray(allEvents) &&
-		allEvents.filter(e => e.id.toString() === eventId).length !== 0
+		allEvents.find(e => e.id.toString() === eventId)
 	) {
-		return validReturn;
+		const currentEvent = allEvents.find(e => e.id.toString() === eventId);
+		return (
+			<>
+				<Helmet>
+					<title>name of event | Ticketr</title>
+				</Helmet>
+				<Wrapper>
+					<EventStyle>
+						<h1 className="mainHeader textCenter">name of event</h1>
+						<h3 className="textCenter">About</h3>
+						<p>about event</p>
+
+						<p>picture</p>
+						<p>
+							about(1st paragraph). If more about(put it in another paragraph)
+							date, time, location
+						</p>
+						<p> two links. one to view map and another to register</p>
+					</EventStyle>
+				</Wrapper>
+			</>
+		);
 	} else if (
 		Array.isArray(allEvents) &&
-		allEvents.filter(e => e.id.toString() === eventId).length === 0
+		!allEvents.find(e => e.id.toString() === eventId)
 	) {
 		return <NotFound />;
 	} else {
