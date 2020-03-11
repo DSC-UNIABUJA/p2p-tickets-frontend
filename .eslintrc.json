@@ -11,6 +11,14 @@
   "plugins": ["react", "prettier", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "rules": {
+		"no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"args": "after-used",
+				"ignoreRestSiblings": false
+			}
+		],
     "prettier/prettier": [
       "error",
       {
