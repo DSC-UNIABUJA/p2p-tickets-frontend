@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import Wrapper from "../../components/wrapper/Wrapper";
 import Home from "./homeStyle";
 import Events from "../../components/events/Events";
 import PaymentIcon from "@material-ui/icons/Payment";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Button = styled.div`
@@ -33,6 +33,12 @@ const Button = styled.div`
 `;
 
 export default props => {
+	// scroll to top on mount
+	const { pathname } = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
 	return (
 		<Wrapper>
 			<Home>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
+import { useLocation } from "react-router-dom";
 import Wrapper from "../../components/wrapper/Wrapper";
 import { Link } from "react-router-dom";
 import Form from "../../assets/styles/reusable/Form";
@@ -26,6 +27,13 @@ const RegisterStyle = styled.div`
 `;
 
 const Register = props => {
+	// scroll to top on mont
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
 	// refs
 	const nameRef = createRef();
 	const emailRef = createRef();

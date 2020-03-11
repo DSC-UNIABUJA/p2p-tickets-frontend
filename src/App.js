@@ -14,7 +14,6 @@ import AllEvents from "./views/allEvents/AllEvents";
 import Event from "./views/event/Event";
 import MyEvent from "./views/myEvent/MyEvent";
 
-// any route that is private and needs authentication will have a redirect to the login page when users attempt to visit it.
 function App() {
 	return (
 		<Provider store={store}>

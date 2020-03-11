@@ -135,7 +135,7 @@ export default () => {
 					<Link to="/settings">Settings</Link>
 				</li>
 				<li className="logout">
-					<a href="!#">Logout</a>
+					<a href="#!">Logout</a>
 				</li>
 			</div>
 		</ul>

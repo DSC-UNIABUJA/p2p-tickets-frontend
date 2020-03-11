@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
 		case GET_EVENTS:
 			return {
 				...state,
-				allEvents: action.payload
+				allEvents: action.payload.slice(0, 9)
 			};
 		case ASYNC_ERROR:
 			return {
