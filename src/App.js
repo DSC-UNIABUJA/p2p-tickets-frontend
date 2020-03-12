@@ -33,8 +33,6 @@ function App() {
 					<Route exact path="/dashboard" component={Dashboard} />
 					<Route exact path="/settings" component={Settings} />
 					<Route path="/my-event/:eventId" component={MyEvent} />
-					<Route exact path="/reset-password" />
-					<Route exact path="/forgot-password" />
 
 					<Route component={NotFound} />
 				</Switch>
