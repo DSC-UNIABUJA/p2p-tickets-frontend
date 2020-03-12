@@ -43,7 +43,6 @@ const Register = props => {
 	const passwordMainRef = createRef();
 	const submitBtn = createRef();
 
-	// props
 	const { setAlert } = props;
 
 	// set loading to "loading..." when making async requests
@@ -75,22 +74,18 @@ const Register = props => {
 	const [disableSubmit, setDisableSubmit] = useState(true);
 
 	const handleSubmit = e => {
-		// setRegisterLoginLoading();
+		// set loading;
 		e.preventDefault();
-		// register({
-		//   name,
-		//   email,
-		//   password,
-		//   confirmPassword
-		// });
+		if (disableSubmit) {
+			setAlert("Please correctly fill all credentials", "error");
+			return;
+		}
 		console.log({
 			name,
 			email,
 			password,
 			confirmPassword
 		});
-		setAlert("Successfully registered. Redirecting to login...", "success");
-		// after successful registering, clear credentials and redirect to login
 	};
 
 	const emailRegex = /^([a-z0-9.\-_]+)@([a-z0-9.\-_]+)\.([a-z]{2,6})$/i;

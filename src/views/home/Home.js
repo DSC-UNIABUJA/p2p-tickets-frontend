@@ -32,7 +32,7 @@ const Button = styled.div`
 	}
 `;
 
-export default props => {
+const HomeComponent = () => {
 	// scroll to top on mount
 	const { pathname } = useLocation();
 	useEffect(() => {
@@ -110,3 +110,5 @@ export default props => {
 		</Wrapper>
 	);
 };
+
+export default HomeComponent;

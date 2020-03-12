@@ -120,7 +120,17 @@ const Events = props => {
 		} else {
 			setAlert(errMsg, "error");
 			return (
-				<p style={{ fontWeight: "bold", color: "red", fontSize: "1.1rem" }}>
+				<p
+					style={{
+						fontWeight: "bold",
+						textAlign: "center",
+						color: "red",
+						width: "100%",
+						marginLeft: 0,
+						marginRight: 0,
+						fontSize: "1.1rem"
+					}}
+				>
 					{errMsg}
 				</p>
 			);
