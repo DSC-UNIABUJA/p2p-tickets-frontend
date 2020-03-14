@@ -1,12 +1,7 @@
-/**
- *  This the theme configuration file, it sets and adjust all the parameters for the theme object
- *
- *  @author Oladiran Segun
- *
- */
-import {ThemeOptions} from "@material-ui/core/styles/createMuiTheme"
+import {ThemeOptions} from "@material-ui/core/styles/createMuiTheme";
 
-const theme: ThemeOptions = {
+/**@type {ThemeOptions}*/
+const theme = {
 	palette: {
 		type: "light",
 		primary: {
@@ -37,6 +32,6 @@ const theme: ThemeOptions = {
 			fontSize: "14px",
 		},
 	},
-}
+};
 
-export default theme
+export default theme;
