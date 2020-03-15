@@ -6,14 +6,18 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme =>
 	createStyles({
 		root: {},
 		paper: {
 			width: "100%",
-			padding: `${theme.spacing(0.5)}px ${theme.spacing(2)}px`,
+			padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
 			zIndex: theme.zIndex.appBar,
+		},
+		button: {
+			textTransform: "capitalize",
 		},
 		icon: {
 			marginLeft: "1rem",
@@ -60,10 +64,13 @@ const Nav = () => {
 							<Logo />
 						</Grid>
 						<Grid item sm={8} xs={5} container justify={"flex-end"}>
-							<IconButton className={classes.icon} onClick={changeMode}>
-								<Brightness4Icon direction={"rtl"} color={"primary"} />
-							</IconButton>
-							<Button variant={"outlined"}>Create Event</Button>
+							<Button
+								variant={"outlined"}
+								color={"primary"}
+								className={classes.button}
+							>
+								Create Event
+							</Button>
 						</Grid>
 					</Grid>
 				</Paper>

@@ -19,7 +19,11 @@ const useStyles = makeStyles(theme =>
 
 const Logo = () => {
 	const classes = useStyles();
-	return <Typography variant={"h2"}>Logo</Typography>;
+	return (
+		<Typography variant={"h2"} style={{fontSize: "32px"}}>
+			Logo
+		</Typography>
+	);
 };
 
 export default Logo;

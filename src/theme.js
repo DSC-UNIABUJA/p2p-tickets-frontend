@@ -21,7 +21,7 @@ const theme = {
 		contrastThreshold: 4,
 	},
 	typography: {
-		fontFamily: "Montserrat Alternates, sans-serif",
+		fontFamily: "Montserrat, sans-serif",
 		h3: {
 			fontFamily: "Montserrat, sans-serif",
 		},
