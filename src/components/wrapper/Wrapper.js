@@ -7,7 +7,11 @@ const Wrapper = props => {
 	return (
 		<div>
 			<Header {...props} />
-			<Container>{props.children}</Container>
+			<Container>
+				{props.children}
+				{/*Adds margin for the footer*/}
+				<div style={{marginBottom: "100px"}} />
+			</Container>
 			<Footer {...props} />
 		</div>
 	);
