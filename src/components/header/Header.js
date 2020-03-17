@@ -8,6 +8,7 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+// if authorized, "create event" should lead to "/dashboard/overview", if not, it should lead to sign-in
 const useStyles = makeStyles(theme =>
 	createStyles({
 		root: {},
@@ -53,7 +54,7 @@ const Nav = () => {
 	return (
 		<>
 			<Grid container>
-				<Paper elevation={0} className={classes.paper}>
+				<Paper elevation={4} className={classes.paper}>
 					<Grid
 						container
 						className={classes.nav}

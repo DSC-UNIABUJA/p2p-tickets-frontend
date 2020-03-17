@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Fade from "@material-ui/core/Fade";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 import PropTypes from "prop-types";
 
@@ -14,12 +14,12 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		width: "100%",
 		"& > * + *": {
-			marginTop: theme.spacing(2)
-		}
-	}
+			marginTop: theme.spacing(2),
+		},
+	},
 }));
 
-const AlertComponent = ({ alert }) => {
+const AlertComponent = ({alert}) => {
 	const classes = useStyles();
 
 	const [open, setOpen] = useState(true);
@@ -37,7 +37,7 @@ const AlertComponent = ({ alert }) => {
 			return (
 				<Snackbar
 					TransitionComponent={Fade}
-					anchorOrigin={{ vertical: "top", horizontal: "center" }}
+					anchorOrigin={{vertical: "top", horizontal: "center"}}
 					open={open}
 					autoHideDuration={5000}
 					onClose={handleClose}
@@ -51,7 +51,7 @@ const AlertComponent = ({ alert }) => {
 			return (
 				<Snackbar
 					TransitionComponent={Fade}
-					anchorOrigin={{ vertical: "top", horizontal: "center" }}
+					anchorOrigin={{vertical: "top", horizontal: "center"}}
 					open={open}
 					autoHideDuration={5000}
 					onClose={handleClose}
@@ -65,7 +65,7 @@ const AlertComponent = ({ alert }) => {
 			return (
 				<Snackbar
 					TransitionComponent={Fade}
-					anchorOrigin={{ vertical: "top", horizontal: "center" }}
+					anchorOrigin={{vertical: "top", horizontal: "center"}}
 					open={open}
 					autoHideDuration={5000}
 					onClose={handleClose}
@@ -87,7 +87,7 @@ const AlertComponent = ({ alert }) => {
 };
 
 AlertComponent.propTypes = {
-	alert: PropTypes.object.isRequired
+	alert: PropTypes.object.isRequired,
 };
 
 export default AlertComponent;

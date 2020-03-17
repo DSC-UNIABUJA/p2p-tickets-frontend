@@ -5,6 +5,7 @@
 import React from "react";
 import {makeStyles, createStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme =>
 	createStyles({
@@ -20,8 +21,8 @@ const useStyles = makeStyles(theme =>
 const Logo = () => {
 	const classes = useStyles();
 	return (
-		<Typography variant={"h2"} style={{fontSize: "32px"}}>
-			Logo
+		<Typography variant={"h2"} style={{fontSize: "32px", fontWeight: "bold"}}>
+			<Link to="/">TICKETR</Link>
 		</Typography>
 	);
 };

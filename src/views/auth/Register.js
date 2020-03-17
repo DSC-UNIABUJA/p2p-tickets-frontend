@@ -1,11 +1,11 @@
-import React, { useState, useEffect, createRef } from "react";
-import { Helmet } from "react-helmet";
-import { useLocation } from "react-router-dom";
+import React, {useState, useEffect, createRef} from "react";
+import {Helmet} from "react-helmet";
+import {useLocation} from "react-router-dom";
 import Wrapper from "../../components/wrapper/Wrapper";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Form from "../../assets/styles/reusable/Form";
-import { connect } from "react-redux";
-import { setAlert } from "../../store/actions/alertAction";
+import {connect} from "react-redux";
+import {setAlert} from "../../store/actions/alertAction";
 
 import styled from "styled-components";
 
@@ -22,14 +22,14 @@ const RegisterStyle = styled.div`
 
 		a {
 			text-decoration: none;
-			color: #b183fa;
+			color: #b183fa !important;
 		}
 	}
 `;
 
 const Register = props => {
 	// scroll to top on mont
-	const { pathname } = useLocation();
+	const {pathname} = useLocation();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -43,7 +43,7 @@ const Register = props => {
 	const passwordMainRef = createRef();
 	const submitBtn = createRef();
 
-	const { setAlert } = props;
+	const {setAlert} = props;
 
 	// set loading to "loading..." when making async requests
 	// useEffect(() => {
@@ -59,13 +59,13 @@ const Register = props => {
 		name: "",
 		email: "",
 		password: "",
-		confirmPassword: ""
+		confirmPassword: "",
 	});
-	const { name, email, password, confirmPassword } = user;
+	const {name, email, password, confirmPassword} = user;
 	const onChange = e => {
 		const updatedUser = {
 			...user,
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
 		};
 		setUser(updatedUser);
 		handleErrorMessage(e);
@@ -84,7 +84,7 @@ const Register = props => {
 			name,
 			email,
 			password,
-			confirmPassword
+			confirmPassword,
 		});
 	};
 
@@ -102,16 +102,7 @@ const Register = props => {
 		} else {
 			setDisableSubmit(true);
 		}
-	}, [
-		confirmPassword,
-		disableSubmit,
-		email,
-		emailRegex,
-		name,
-		password,
-		user,
-		whiteSpaceRegex
-	]);
+	}, [confirmPassword, disableSubmit, email, emailRegex, name, password, user, whiteSpaceRegex]);
 
 	const disabledBtn = () => {
 		if (disableSubmit)
@@ -120,22 +111,19 @@ const Register = props => {
 				boxShadow: "none",
 				backgroundColor: "rgba(0, 0, 0, 0.12)",
 				cursor: "default",
-				pointerEvents: "none"
+				pointerEvents: "none",
 			};
 	};
 
 	const errorMessageStyle = {
 		color: "red",
-		display: "none"
+		display: "none",
 	};
 
 	const handleErrorMessage = e => {
 		switch (e.target.name) {
 			case "name":
-				if (
-					!whiteSpaceRegex.test(e.target.value) ||
-					e.target.value.length < 5
-				) {
+				if (!whiteSpaceRegex.test(e.target.value) || e.target.value.length < 5) {
 					nameRef.current.style.display = "block";
 				} else {
 					nameRef.current.style.display = "none";
@@ -252,7 +240,7 @@ const Register = props => {
 };
 
 const mapDispatchToProps = {
-	setAlert
+	setAlert,
 };
 
 export default connect(null, mapDispatchToProps)(Register);

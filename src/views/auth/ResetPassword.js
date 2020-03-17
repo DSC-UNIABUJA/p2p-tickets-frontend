@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import { Helmet } from "react-helmet";
+import React, {useState, useRef} from "react";
+import {Helmet} from "react-helmet";
 import styled from "styled-components";
 import Wrapper from "../../components/wrapper/Wrapper";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Form from "../../assets/styles/reusable/Form";
 
 const Header = styled.h1`
@@ -77,8 +77,8 @@ const ResetPassword = () => {
 			<Form authForm onSubmit={handleSubmit}>
 				<div className="form-group">
 					<Instruction>
-						Please Enter the email you used to register your account below and a
-						reset link will be sent to you.
+						Please Enter the email you used to register your account below and a reset
+						link will be sent to you.
 					</Instruction>
 					<input
 						type="email"
@@ -96,7 +96,7 @@ const ResetPassword = () => {
 					type="submit"
 					value="Send reset email"
 					className="submit-btn"
-					style={{ marginTop: 0 }}
+					style={{marginTop: 0}}
 				/>
 			</Form>
 			{/* if request is successful, show the following */}
@@ -111,8 +111,8 @@ const requestSuccessful = () => {
 		<RequestSuccessStyle>
 			<Header>Reset Email sent</Header>
 			<p>
-				Check your email for a link to reset your password. If it doesn’t appear
-				within a few minutes, check your spam folder.
+				Check your email for a link to reset your password. If it doesn’t appear within a
+				few minutes, check your spam folder.
 			</p>
 
 			<Button>

@@ -18,7 +18,7 @@ const Button = styled.div`
 	a {
 		text-decoration: none;
 		font-size: 1.1rem;
-		color: white;
+		color: white !important;
 		font-weight: 500;
 		border-radius: 50px;
 		padding: 1rem 3rem;

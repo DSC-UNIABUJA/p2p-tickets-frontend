@@ -1,7 +1,7 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import {Helmet} from "react-helmet";
 import Wrapper from "../../components/wrapper/Wrapper";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import styled from "styled-components";
 
 const NotFoundStyle = styled.div`
@@ -45,7 +45,7 @@ const NotFound = () => {
 					height: "60vh",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "center"
+					justifyContent: "center",
 				}}
 			>
 				<NotFoundStyle>

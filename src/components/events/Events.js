@@ -1,12 +1,12 @@
-import React, { useEffect, Fragment } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React, {useEffect, Fragment} from "react";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import IndividualEvent from "./IndividualEvent";
-import { getEvents } from "../../store/actions/eventAction";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import {getEvents} from "../../store/actions/eventAction";
+import {fade, makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import InputBase from "@material-ui/core/InputBase";
-import { setAlert } from "../../store/actions/alertAction";
+import {setAlert} from "../../store/actions/alertAction";
 import Loader from "../loader/Loader";
 import styled from "styled-components";
 
@@ -45,19 +45,19 @@ const Button = styled.div`
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		flexGrow: 1
+		flexGrow: 1,
 	},
 	paper: {
 		padding: theme.spacing(2),
 		textAlign: "center",
-		color: theme.palette.text.secondary
+		color: theme.palette.text.secondary,
 	},
 
 	search: {
 		borderRadius: theme.shape.borderRadius,
 		backgroundColor: fade(theme.palette.common.white, 0.15),
 		"&:hover": {
-			backgroundColor: fade(theme.palette.common.white, 0.25)
+			backgroundColor: fade(theme.palette.common.white, 0.25),
 		},
 		margin: "1rem auto 2rem auto",
 		display: "block",
@@ -65,8 +65,8 @@ const useStyles = makeStyles(theme => ({
 		width: "100%",
 		[theme.breakpoints.up("sm")]: {
 			marginLeft: theme.spacing(1),
-			width: "auto"
-		}
+			width: "auto",
+		},
 	},
 	inputRoot: {
 		color: "inherit",
@@ -74,7 +74,7 @@ const useStyles = makeStyles(theme => ({
 		display: "block",
 		marginLeft: "auto",
 		marginRight: "auto",
-		textAlign: "center"
+		textAlign: "center",
 	},
 	inputInput: {
 		padding: ".5rem 2rem",
@@ -90,15 +90,15 @@ const useStyles = makeStyles(theme => ({
 			// width: 200,
 			"&:focus": {
 				// width: 200
-			}
-		}
-	}
+			},
+		},
+	},
 }));
 
 const Events = props => {
 	const classes = useStyles();
 
-	const { allEvents, getEvents, setAlert, errMsg } = props;
+	const {allEvents, getEvents, setAlert, errMsg} = props;
 	useEffect(() => {
 		getEvents();
 	}, [getEvents]);
@@ -128,7 +128,7 @@ const Events = props => {
 						width: "100%",
 						marginLeft: 0,
 						marginRight: 0,
-						fontSize: "1.1rem"
+						fontSize: "1.1rem",
 					}}
 				>
 					{errMsg}
@@ -145,9 +145,9 @@ const Events = props => {
 							placeholder="Search for any event"
 							classes={{
 								root: classes.inputRoot,
-								input: classes.inputInput
+								input: classes.inputInput,
 							}}
-							inputProps={{ "aria-label": "search" }}
+							inputProps={{"aria-label": "search"}}
 						/>
 					)}
 				</div>
@@ -166,12 +166,12 @@ const Events = props => {
 
 const mapStateToProps = state => ({
 	allEvents: state.events.allEvents,
-	errMsg: state.events.errMsg
+	errMsg: state.events.errMsg,
 });
 
 const mapDispatchToProps = {
 	getEvents,
-	setAlert
+	setAlert,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Events);

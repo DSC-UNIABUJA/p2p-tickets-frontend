@@ -1,16 +1,16 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import {Helmet} from "react-helmet";
 import Wrapper from "../../components/wrapper/Wrapper";
 
-const Dashboard = () => {
+const Overview = () => {
 	return (
 		<Wrapper>
 			<Helmet>
-				<title>Dashboard | Ticketr</title>
+				<title>Dashboard Overview | Ticketr</title>
 			</Helmet>
 			<p>Dashboard here</p>
 		</Wrapper>
 	);
 };
 
-export default Dashboard;
+export default Overview;

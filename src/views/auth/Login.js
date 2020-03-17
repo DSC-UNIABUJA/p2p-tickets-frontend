@@ -1,6 +1,6 @@
-import React, { useState, createRef } from "react";
-import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import React, {useState, createRef} from "react";
+import {Helmet} from "react-helmet";
+import {Link} from "react-router-dom";
 import Wrapper from "../../components/wrapper/Wrapper";
 import Form from "../../assets/styles/reusable/Form";
 
@@ -19,7 +19,7 @@ const LoginStyle = styled.div`
 
 		a {
 			text-decoration: none;
-			color: #b183fa;
+			color: #b183fa !important;
 		}
 	}
 `;
@@ -28,11 +28,11 @@ const Login = () => {
 	const submitBtn = createRef();
 	const [user, setUser] = useState({
 		email: "",
-		password: ""
+		password: "",
 	});
-	const { email, password } = user;
+	const {email, password} = user;
 	const onChange = e => {
-		setUser({ ...user, [e.target.name]: e.target.value });
+		setUser({...user, [e.target.name]: e.target.value});
 	};
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -74,12 +74,7 @@ const Login = () => {
 					<p className="helper-form-text">
 						<Link to="/reset-password">Forgot password?</Link>
 					</p>
-					<input
-						ref={submitBtn}
-						type="submit"
-						value="Login"
-						className="submit-btn"
-					/>
+					<input ref={submitBtn} type="submit" value="Login" className="submit-btn" />
 				</Form>
 			</Wrapper>
 		</LoginStyle>

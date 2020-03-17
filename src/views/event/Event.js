@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import React, {useEffect} from "react";
+import {Helmet} from "react-helmet";
 import Wrapper from "../../components/wrapper/Wrapper";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import NotFound from "../notfound/NotFound";
-import { getEvents } from "../../store/actions/eventAction";
+import {connect} from "react-redux";
+import NotFound from "../NotFound/NotFound";
+import {getEvents} from "../../store/actions/eventAction";
 import Loader from "../../components/loader/Loader";
 
 const EventStyle = styled.div`
@@ -15,17 +15,14 @@ const EventStyle = styled.div`
 
 const Event = props => {
 	const eventId = props.match.params.eventId;
-	const { getEvents, allEvents } = props;
+	const {getEvents, allEvents} = props;
 	useEffect(() => {
 		getEvents();
 	}, [getEvents]);
 
 	if (allEvents === null) {
 		return <Loader />;
-	} else if (
-		Array.isArray(allEvents) &&
-		allEvents.find(e => e.id.toString() === eventId)
-	) {
+	} else if (Array.isArray(allEvents) && allEvents.find(e => e.id.toString() === eventId)) {
 		const currentEvent = allEvents.find(e => e.id.toString() === eventId);
 		return (
 			<>
@@ -40,18 +37,15 @@ const Event = props => {
 
 						<p>picture</p>
 						<p>
-							about(1st paragraph). If more about(put it in another paragraph)
-							date, time, location
+							about(1st paragraph). If more about(put it in another paragraph) date,
+							time, location
 						</p>
 						<p> two links. one to view map and another to register</p>
 					</EventStyle>
 				</Wrapper>
 			</>
 		);
-	} else if (
-		Array.isArray(allEvents) &&
-		!allEvents.find(e => e.id.toString() === eventId)
-	) {
+	} else if (Array.isArray(allEvents) && !allEvents.find(e => e.id.toString() === eventId)) {
 		return <NotFound />;
 	} else {
 		return <Loader />;
@@ -59,11 +53,11 @@ const Event = props => {
 };
 
 const mapStateToProps = state => ({
-	allEvents: state.events.allEvents
+	allEvents: state.events.allEvents,
 });
 
 const mapDispatchToProps = {
-	getEvents
+	getEvents,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Event);
