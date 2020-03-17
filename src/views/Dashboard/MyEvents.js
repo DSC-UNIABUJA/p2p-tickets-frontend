@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../components/wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 // add title with react helmet later
 const MyEvents = () => {

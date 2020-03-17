@@ -7,7 +7,7 @@ import {fade, makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import InputBase from "@material-ui/core/InputBase";
 import {setAlert} from "../../store/actions/alertAction";
-import Loader from "../loader/Loader";
+import Loader from "../Loader/Loader";
 import styled from "styled-components";
 
 const EventStyle = styled.div`

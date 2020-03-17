@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Helmet} from "react-helmet";
 import {useLocation} from "react-router-dom";
-import Wrapper from "../../components/wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 import styled from "styled-components";
 
 const AllEventsStyle = styled.div`

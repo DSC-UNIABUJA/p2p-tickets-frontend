@@ -1,6 +1,6 @@
 import React from "react";
 import {Helmet} from "react-helmet";
-import Wrapper from "../../components/wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
@@ -17,7 +17,7 @@ const NotFoundStyle = styled.div`
 
 		.goHomeLink {
 			text-decoration: none;
-			color: white;
+			color: white !important;
 			background: #3672a4;
 			padding: 0.7rem 2.3rem;
 			border-radius: 1.2rem;

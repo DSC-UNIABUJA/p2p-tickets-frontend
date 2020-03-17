@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import Typewriter from "typewriter-effect";
-import Wrapper from "../../components/wrapper/Wrapper";
-import Home from "./homeStyle";
-import Events from "../../components/events/Events";
+import Wrapper from "../../components/Wrapper/Wrapper";
+import Home from "./HomeStyle";
+import Events from "../../components/Events/Events";
 import PaymentIcon from "@material-ui/icons/Payment";
 import {Link, useLocation} from "react-router-dom";
 import styled from "styled-components";

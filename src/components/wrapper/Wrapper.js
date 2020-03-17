@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../footer/Footer";
-import Header from "../header/Header";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import Container from "../../assets/styles/reusable/Container";
 
 const Wrapper = props => {

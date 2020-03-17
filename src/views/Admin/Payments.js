@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../components/wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Payments = () => {
 	return (

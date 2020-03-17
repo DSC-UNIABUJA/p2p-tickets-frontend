@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 import {Helmet} from "react-helmet";
-import Wrapper from "../../components/wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 import styled from "styled-components";
 import {connect} from "react-redux";
 import NotFound from "../NotFound/NotFound";
 import {getEvents} from "../../store/actions/eventAction";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 const EventStyle = styled.div`
 	.textCenter {

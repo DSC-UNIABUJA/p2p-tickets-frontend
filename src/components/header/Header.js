@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import {makeStyles, createStyles} from "@material-ui/core/styles";
-import Logo from "../logo/Logo";
+import Logo from "../Logo/Logo";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Brightness4Icon from "@material-ui/icons/Brightness4";

@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../components/wrapper/Wrapper";
+import Wrapper from "../../components/Wrapper/Wrapper";
 // authentication for auth should expire after one hour or within a short period. So when not authenticated, redirect to /admin/login
 
 const Overview = () => {
