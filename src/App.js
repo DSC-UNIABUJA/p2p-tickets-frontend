@@ -2,7 +2,7 @@ import React from "react";
 import {Provider} from "react-redux";
 import store from "./store";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Home from "./views/home/Home";
+import Home from "./Views/Home/Home";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Alert from "./components/Alert/Alert";
 import NotFound from "./Views/NotFound/NotFound";
@@ -10,12 +10,12 @@ import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import themeOptions from "./theme";
 import Admin from "./Layouts/Admin";
 import Dashboard from "./Layouts/Dashboard";
-import Login from "./views/auth/Login";
-import Register from "./views/Auth/Register";
-import ResetPassword from "./views/Auth/ResetPassword";
-import AllEvents from "./views/allEvents/AllEvents";
-import Event from "./views/event/Event";
-import About from "./views/about/About";
+import Login from "./Views/Auth/Login";
+import Register from "./Views/Auth/Register";
+import ResetPassword from "./Views/Auth/ResetPassword";
+import AllEvents from "./Views/AllEvents/AllEvents";
+import Event from "./Views/Event/Event";
+import About from "./Views/About/About";
 
 const publicRoutes = [
 	{path: "/login", component: Login},
