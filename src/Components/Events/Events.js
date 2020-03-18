@@ -8,40 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import InputBase from "@material-ui/core/InputBase";
 import {setAlert} from "../../store/actions/alertAction";
 import Loader from "../Loader/Loader";
-import styled from "styled-components";
-
-const EventStyle = styled.div`
-	color: #333;
-	.eventHeader {
-		font-size: 2rem;
-	}
-`;
-
-const Button = styled.div`
-	margin: 3.4rem auto 0 auto;
-	text-align: center;
-	display: block;
-
-	a {
-		text-decoration: none;
-		font-size: 1.1rem;
-		color: inherit;
-		border-radius: 50px;
-		padding: 0.8rem 3.2rem;
-		background: white;
-		border-radius: 6px;
-		border: 2px solid #ccc;
-		font-family: inherit;
-		font-weight: bold;
-		transition: ease-in-out 0.4s;
-
-		&:hover {
-			background: transparent;
-			border: 2px solid #555;
-			transform: scale(1.03);
-		}
-	}
-`;
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -137,16 +104,13 @@ const Events = props => {
 		}
 	};
 	return (
-		<EventStyle>
+		<>
 			<div className="classes.root">
 				<div className={classes.search}>
 					{Array.isArray(allEvents) && (
-						<InputBase
+						<TextField
+							fullWidth={true}
 							placeholder="Search for any event"
-							classes={{
-								root: classes.inputRoot,
-								input: classes.inputInput,
-							}}
 							inputProps={{"aria-label": "search"}}
 						/>
 					)}
@@ -154,13 +118,8 @@ const Events = props => {
 				<Grid container spacing={3}>
 					{displayEvents()}
 				</Grid>
-				{Array.isArray(allEvents) && (
-					<Button>
-						<Link to="/all-events">See more</Link>
-					</Button>
-				)}
 			</div>
-		</EventStyle>
+		</>
 	);
 };
 
