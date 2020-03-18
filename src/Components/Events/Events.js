@@ -9,10 +9,15 @@ import InputBase from "@material-ui/core/InputBase";
 import {setAlert} from "../../store/actions/alertAction";
 import Loader from "../Loader/Loader";
 import TextField from "@material-ui/core/TextField";
+import GridList from "@material-ui/core/GridList";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		flexGrow: 1,
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+		overflow: "hidden",
+		backgroundColor: theme.palette.background.paper,
 	},
 	paper: {
 		padding: theme.spacing(2),
@@ -115,9 +120,9 @@ const Events = props => {
 						/>
 					)}
 				</div>
-				<Grid container spacing={3}>
-					{displayEvents()}
-				</Grid>
+				<div className={classes.root}>
+					<GridList cellHeight={180}>{displayEvents()}</GridList>
+				</div>
 			</div>
 		</>
 	);

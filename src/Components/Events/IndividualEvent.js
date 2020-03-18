@@ -1,81 +1,59 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import InfoIcon from "@material-ui/icons/Info";
 import {Link} from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
 	root: {
-		maxWidth: 345,
-		margin: "0 auto",
+		cursor: "pointer",
+		"&: hover": {
+			background: "green",
+		},
 	},
-	centerHeader: {
-		textAlign: "center",
+	tile: {
+		backgroundColor: "green",
 	},
-	centerCardActions: {
-		textAlign: "center",
-		margin: "0 auto",
-		display: "block",
-		borderTop: "1px solid #ccc",
+	icon: {
+		color: "rgba(255, 255, 255, 0.54)",
 	},
-	cardActionButtons: {
-		fontWeight: "bold",
+	overlay: {
+		minHeight: "100%",
+		backgroundColor: "rgba(0, 0, 0, 0.8)",
+		position: "absolute",
+		top: "0",
+		minWidth: "100%",
+		opacity: 0,
+		transition: "all .5s ease-in-out",
+		"&:hover": {
+			opacity: 1,
+		},
 	},
-	cardTextArea: {
-		paddingTop: 0,
-		paddingBottom: "1rem",
-	},
-	date: {
-		color: "#da683e",
-		fontWeight: "bold",
-		marginBottom: 0,
-	},
-	location: {
-		color: "#808395",
-		fontWeight: "bold",
-		marginBottom: 0,
-		marginTop: "0.5rem",
-	},
-});
+}));
+//
 
 const IndividualEvent = props => {
 	const event = props.event;
 	const classes = useStyles();
 	const {id, name, date, location, time} = event;
 	return (
-		<Card elevation={6} className={classes.root}>
-			<Link style={{color: "inherit", textDecoration: "none"}} to={`/event/${id}`}>
-				<CardActionArea>
-					<CardMedia
-						component="img"
-						alt="Contemplative Reptile"
-						height="200"
-						image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-						title="Contemplative Reptile"
-					/>
-
-					<CardContent className={classes.cardTextArea}>
-						<h2 className={classes.cardHeader}>Name of event</h2>
-						<p className={classes.date}>date, time</p>
-						<p className={classes.location}>location of event</p>
-					</CardContent>
-				</CardActionArea>
-			</Link>
-			<CardActions className={classes.centerCardActions}>
-				<Button className={classes.cardActionButtons} size="small" color="primary">
-					Share
-				</Button>
-				<Link style={{color: "inherit", textDecoration: "none"}} to={`/event/${id}`}>
-					<Button className={classes.cardActionButtons} size="small" color="primary">
-						Learn More
-					</Button>
-				</Link>
-			</CardActions>
-		</Card>
+		<GridListTile className={classes.root}>
+			<img src={"https://material-ui.com/static/images/cards/contemplative-reptile.jpg"} />
+			<GridListTileBar
+				title={"Name of Event"}
+				subtitle={<span>Venue: Uni Abuja</span>}
+				className={classes.tile}
+				actionIcon={
+					<IconButton aria-label={`info about Event`} className={classes.icon}>
+						<InfoIcon />
+					</IconButton>
+				}
+			/>
+			<div className={classes.overlay} />
+		</GridListTile>
 	);
 };
 
