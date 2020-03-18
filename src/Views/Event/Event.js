@@ -3,7 +3,7 @@ import {Helmet} from "react-helmet";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import styled from "styled-components";
 import {connect} from "react-redux";
-import NotFound from "../NotFound/NotFound";
+import NotFound from "../Notfound/NotFound";
 import {getEvents} from "../../store/actions/eventAction";
 import Loader from "../../components/Loader/Loader";
 

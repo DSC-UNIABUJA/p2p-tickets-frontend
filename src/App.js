@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./Views/Home/Home";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Alert from "./components/Alert/Alert";
-import NotFound from "./Views/NotFound/NotFound";
+import NotFound from "./Views/Notfound/NotFound";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import themeOptions from "./theme";
 import Admin from "./Layouts/Admin";
