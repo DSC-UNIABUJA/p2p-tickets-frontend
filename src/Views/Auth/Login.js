@@ -1,7 +1,7 @@
 import React, {useState, createRef} from "react";
 import {Helmet} from "react-helmet";
 import {Link} from "react-router-dom";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../Components/Wrapper/Wrapper";
 import Form from "../../assets/styles/reusable/Form";
 
 import styled from "styled-components";

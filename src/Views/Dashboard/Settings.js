@@ -1,6 +1,6 @@
 import React from "react";
 import {Helmet} from "react-helmet";
-import Wrapper from "../../components/Wrapper/Wrapper";
+import Wrapper from "../../Components/Wrapper/Wrapper";
 
 const Settings = () => {
 	return (
