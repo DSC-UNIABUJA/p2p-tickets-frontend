@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme =>
 		root: {},
 		paper: {
 			width: "100%",
-			padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+			padding: `${theme.spacing(3)}px ${theme.spacing(2)}px`,
 			zIndex: theme.zIndex.appBar,
 		},
 		button: {
@@ -54,7 +54,7 @@ const Nav = () => {
 	return (
 		<>
 			<Grid container>
-				<Paper elevation={4} className={classes.paper}>
+				<Paper elevation={0} className={classes.paper}>
 					<Grid
 						container
 						className={classes.nav}
