@@ -1,15 +1,12 @@
-import React, {useEffect, Fragment} from "react";
-import {connect} from "react-redux";
-import {Link} from "react-router-dom";
-import IndividualEvent from "./IndividualEvent";
-import {getEvents} from "../../store/actions/eventAction";
-import {fade, makeStyles} from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import InputBase from "@material-ui/core/InputBase";
-import {setAlert} from "../../store/actions/alertAction";
-import Loader from "../Loader/Loader";
-import TextField from "@material-ui/core/TextField";
+import React from "react";
+import {makeStyles} from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import InfoIcon from "@material-ui/icons/Info";
+import Typography from "@material-ui/core/Typography";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -19,123 +16,74 @@ const useStyles = makeStyles(theme => ({
 		overflow: "hidden",
 		backgroundColor: theme.palette.background.paper,
 	},
-	paper: {
+	tile: {},
+	icon: {
+		color: "rgba(255, 255, 255, 0.54)",
+	},
+	gridListTile: {
+		cursor: "pointer",
+	},
+	overlay: {
+		minHeight: "100%",
+		backgroundColor: "rgba(0, 0, 0, 0.8)",
+		position: "absolute",
+		top: "0",
+		minWidth: "100%",
+		opacity: 0,
+		transition: "all .5s ease-in-out",
 		padding: theme.spacing(2),
-		textAlign: "center",
-		color: theme.palette.text.secondary,
-	},
-
-	search: {
-		borderRadius: theme.shape.borderRadius,
-		backgroundColor: fade(theme.palette.common.white, 0.15),
 		"&:hover": {
-			backgroundColor: fade(theme.palette.common.white, 0.25),
+			opacity: 1,
 		},
-		margin: "1rem auto 2rem auto",
-		display: "block",
-		textAlign: "center",
-		width: "100%",
-		[theme.breakpoints.up("sm")]: {
-			marginLeft: theme.spacing(1),
-			width: "auto",
+		"& *": {
+			color: "white !important",
 		},
 	},
-	inputRoot: {
-		color: "inherit",
-		width: "70%",
-		display: "block",
-		marginLeft: "auto",
-		marginRight: "auto",
-		textAlign: "center",
-	},
-	inputInput: {
-		padding: ".5rem 2rem",
-		transition: theme.transitions.create("width"),
-		width: "70%",
-		marginLeft: "auto",
-		marginRight: "auto",
-		display: "block",
-		textAlign: "center",
-		border: "2px solid #888",
-		borderRadius: "2px",
-		[theme.breakpoints.up("sm")]: {
-			// width: 200,
-			"&:focus": {
-				// width: 200
-			},
-		},
+	titleBar: {
+		background:
+			"linear-gradient(to top, rgba(0,0,0,0.7) 0%, " +
+			"rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
 	},
 }));
+//
 
 const Events = props => {
+	const event = props.event;
 	const classes = useStyles();
-
-	const {allEvents, getEvents, setAlert, errMsg} = props;
-	useEffect(() => {
-		getEvents();
-	}, [getEvents]);
-
-	const displayEvents = () => {
-		if (allEvents === null && errMsg === "") {
-			return <Loader />;
-		} else if (Array.isArray(allEvents)) {
-			// display only latest 9 events on the landing page
-			return allEvents.slice(0, 9).map((event, i) => {
-				return (
-					<Fragment key={i}>
-						<Grid item xs={12} sm={4}>
-							<IndividualEvent event={event} />
-						</Grid>
-					</Fragment>
-				);
-			});
-		} else {
-			setAlert(errMsg, "error");
-			return (
-				<p
-					style={{
-						fontWeight: "bold",
-						textAlign: "center",
-						color: "red",
-						width: "100%",
-						marginLeft: 0,
-						marginRight: 0,
-						fontSize: "1.1rem",
-					}}
-				>
-					{errMsg}
-				</p>
-			);
-		}
-	};
+	const events = new Array(20).fill(0, 0);
 	return (
-		<>
-			<div className="classes.root">
-				<div className={classes.search}>
-					{Array.isArray(allEvents) && (
-						<TextField
-							fullWidth={true}
-							placeholder="Search for any event"
-							inputProps={{"aria-label": "search"}}
+		<div className={classes.root}>
+			<GridList cellHeight={250} spacing={8} cols={4}>
+				{events.map((_, i) => (
+					<GridListTile cols={i % 4 == 0 ? 2 : 1} className={classes.gridListTile}>
+						<img
+							src={
+								"https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+							}
 						/>
-					)}
-				</div>
-				<div className={classes.root}>
-					<GridList cellHeight={180}>{displayEvents()}</GridList>
-				</div>
-			</div>
-		</>
+						<GridListTileBar
+							title={"Name of Event"}
+							subtitle={<span>Venue: Uni Abuja</span>}
+							className={classes.titleBar}
+							actionIcon={
+								<IconButton
+									aria-label={`info about Event`}
+									className={classes.icon}
+								>
+									<InfoIcon />
+								</IconButton>
+							}
+						/>
+						<div className={classes.overlay}>
+							<Typography variant={"h6"}>Uni Abuja Carnival</Typography>
+							<Typography>Date: 22nd June</Typography>
+							<Typography>Venue: School Campus</Typography>
+						</div>
+					</GridListTile>
+				))}
+			</GridList>
+		</div>
 	);
 };
 
-const mapStateToProps = state => ({
-	allEvents: state.events.allEvents,
-	errMsg: state.events.errMsg,
-});
-
-const mapDispatchToProps = {
-	getEvents,
-	setAlert,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Events);
+export default Events;

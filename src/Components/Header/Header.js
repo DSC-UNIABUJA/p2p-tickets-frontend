@@ -76,7 +76,6 @@ const Nav = () => {
 					</Grid>
 				</Paper>
 			</Grid>
-			<div className={classes.toolbar} />
 		</>
 	);
 };
